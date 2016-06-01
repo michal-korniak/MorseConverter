@@ -95,9 +95,9 @@ QString MorseConverter::convertFromMorse(const QString input)
         while(newLines--)
         {
             result+='\n';
-            //didn't use continue, because string something else than new lines char
+            //didn't use continue, because string can contain something else than new lines characters
         }
-        str=str.trimmed();
+        str=str.trimmed();   //we dealed with new lines characters, so we can get rid theire
         List_t::Iterator it=std::find_if(dict.begin(),dict.end(),
                                    [str](const QPair<QString,QString> x)->bool {return QString(str)==x.second;});
         if(it!=dict.end())
